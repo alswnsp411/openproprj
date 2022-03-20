@@ -66,10 +66,20 @@
         android:id="@+id/imageView"
         android:layout_width="413dp"
         android:layout_height="329dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="36dp"
         app:layout_constraintTop_toBottomOf="@+id/radio_group"
         app:srcCompat="@drawable/obsicon"
         tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2020039062 김민주"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radio_group" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
