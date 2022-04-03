@@ -2,6 +2,7 @@ package com.example.project4_2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
@@ -11,29 +12,30 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     TextView text1, text2;
-    CheckBox chkAgree;
+    Switch chkAgree;
     RadioGroup rGroup1;
     RadioButton rdoDog, rdoCat, rdoRabbit;
-    Button btnOK;
+    Button exitbtn, setbtn;
     ImageView imgPet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setTitle("애완동물 사진 보기");
+        setTitle("안드로이드 사진 보기");
 
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.drawable.obsicon);
 
         text1=(TextView)findViewById(R.id.Text1);
-        chkAgree= (CheckBox) findViewById(R.id.ChkAgree);
+        chkAgree= (Switch) findViewById(R.id.ChkAgree);
 
         text2=(TextView) findViewById(R.id.Text2);
         rGroup1=(RadioGroup) findViewById(R.id.Rgroup1);
@@ -41,33 +43,33 @@ public class MainActivity extends AppCompatActivity {
         rdoCat=(RadioButton) findViewById(R.id.RdoCat);
         rdoRabbit=(RadioButton) findViewById(R.id.RdoRabbit);
 
-        btnOK=(Button) findViewById(R.id.BtnOK);
         imgPet=(ImageView) findViewById(R.id.ImgPet);
+        exitbtn=(Button)findViewById(R.id.exitbtn);
+        setbtn=(Button)findViewById(R.id.setbtn);
 
-        chkAgree.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        chkAgree.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(chkAgree.isChecked()==true){
+            public void onClick(View view) {
+                if(chkAgree.isChecked()){  //스위치 버튼이 체크 되었는지 여부
                     text2.setVisibility(View.VISIBLE);
                     rGroup1.setVisibility(View.VISIBLE);
-                    btnOK.setVisibility(View.VISIBLE);
                     imgPet.setVisibility(View.VISIBLE);
+                    exitbtn.setVisibility(View.VISIBLE);
+                    setbtn.setVisibility(View.VISIBLE);
                 }else{
                     text2.setVisibility(View.INVISIBLE);
                     rGroup1.setVisibility(View.INVISIBLE);
-                    btnOK.setVisibility(View.INVISIBLE);
                     imgPet.setVisibility(View.INVISIBLE);
+                    exitbtn.setVisibility(View.INVISIBLE);
+                    setbtn.setVisibility(View.INVISIBLE);
                 }
             }
         });
 
-        btnOK.setOnClickListener(new View.OnClickListener() {
+        rGroup1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onClick(View view) {
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 switch (rGroup1.getCheckedRadioButtonId()) {
-                    case R.id.RdoDog:
-                        imgPet.setImageResource(R.drawable.dung);
-                        break;
                     case R.id.RdoCat:
                         imgPet.setImageResource(R.drawable.cat);
                         break;
@@ -75,8 +77,22 @@ public class MainActivity extends AppCompatActivity {
                         imgPet.setImageResource(R.drawable.rabbit);
                         break;
                     default:
-                        Toast.makeText(getApplicationContext(),"동물 먼저 선택하세요", Toast.LENGTH_SHORT).show();
+                        imgPet.setImageResource(R.drawable.dung);
                 }
+            }
+        });
+        exitbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+        setbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(MainActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
     }

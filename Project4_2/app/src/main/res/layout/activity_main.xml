@@ -15,13 +15,13 @@
 
     <TextView
         android:id="@+id/Text1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="243dp"
+        android:layout_height="37dp"
         android:paddingLeft="10dp"
         android:text="선택을 시작하겠습니까?"
-        android:textSize="15dp"/>
+        android:textSize="20dp" />
 
-    <CheckBox
+    <Switch
         android:id="@+id/ChkAgree"
         android:layout_width="108dp"
         android:layout_height="wrap_content"
@@ -30,13 +30,12 @@
 
     <TextView
         android:id="@+id/Text2"
-        android:layout_width="179dp"
-        android:layout_height="wrap_content"
+        android:layout_width="283dp"
+        android:layout_height="38dp"
         android:paddingLeft="10dp"
-        android:text="좋아하는 애완동물은?"
-        android:textSize="15dp"
-        android:visibility="invisible"
-        />
+        android:text="좋아하는 안드로이드 버전은?"
+        android:textSize="20dp"
+        android:visibility="invisible" />
 
     <RadioGroup
         android:id="@+id/Rgroup1"
@@ -50,38 +49,46 @@
             android:id="@+id/RdoDog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="강아지"
+            android:text="Q(10.0)"
             />
 
         <RadioButton
             android:id="@+id/RdoCat"
             android:layout_width="91dp"
             android:layout_height="41dp"
-            android:text="고양이" />
+            android:text="R(11.0)" />
 
         <RadioButton
             android:id="@+id/RdoRabbit"
             android:layout_width="93dp"
             android:layout_height="wrap_content"
-            android:text="토끼" />
+            android:text="S(12.0)" />
 
     </RadioGroup>
 
-    <Button
-        android:id="@+id/BtnOK"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:text="선택 완료"
-        android:visibility="invisible" />
-
     <ImageView
         android:id="@+id/ImgPet"
-        android:layout_width="242dp"
-        android:layout_height="235dp"
+        android:layout_width="207dp"
+        android:layout_height="195dp"
         android:layout_margin="10dp"
         android:visibility="invisible"
         app:srcCompat="@drawable/dung" />
+
+    <Button
+        android:id="@+id/exitbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:visibility="invisible"
+        android:text="종료"/>
+    <Button
+        android:id="@+id/setbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:visibility="invisible"
+        android:text="처음으로"/>
+
 
 
 </LinearLayout>
