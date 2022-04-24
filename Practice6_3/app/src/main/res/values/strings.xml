@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Practice6_3</string>
+    <string name="Dog">강아지</string>
+    <string name="고양이">고양이</string>
+    <string name="강아지">강아지</string>
+    <string name="토끼">토끼</string>
+    <string name="말">말</string>
+</resources>
